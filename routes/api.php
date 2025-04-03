@@ -8,7 +8,6 @@ use App\Http\Controllers\Api\MovieController;
 Route::prefix('movies')->group(function () {
     // get popular movies
     Route::get('/popular', [MovieController::class, 'getPopularMovies']);
-
     // get movie details by id
     Route::get('/{id}', [MovieController::class, 'getMovieDetails']);
 
@@ -18,3 +17,4 @@ Route::prefix('movies')->group(function () {
     // (Upcoming moveies) 
     Route::get('/upcoming', [MovieController::class, 'getUpcomingMovies']);
 });
+

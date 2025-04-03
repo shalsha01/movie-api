@@ -8,7 +8,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 class RouteServiceProvider extends ServiceProvider
 {
     /**
-        * This namespace is applied to your controller routes.
+     * This namespace is applied to your controller routes.
      *
      * @return void
      */
@@ -28,13 +28,14 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
     }
 
-    /**                 
-        * The path to the "home" route for your application.
+    /**
+     * Define the "API" routes for the application.
+     *
      * @return void
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
+        Route::prefix('api') // API routes should have 'api' as a prefix
              ->middleware('api')
              ->namespace($this->namespace)
              ->group(base_path('routes/api.php'));
@@ -47,9 +48,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes()
     {
-        Route::prefix('api')
-         ->middleware('api')
-         ->namespace($this->namespace)
-         ->group(base_path('routes/api.php'));
+        Route::middleware('web') // Web routes should have 'web' middleware
+             ->namespace($this->namespace)
+             ->group(base_path('routes/web.php')); // Correct the path for web routes
     }
 }
