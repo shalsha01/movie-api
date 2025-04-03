@@ -34,12 +34,12 @@ class RouteServiceProvider extends ServiceProvider
      * @return void
      */
     protected function mapApiRoutes()
-    {
-        Route::prefix('api') // API routes should have 'api' as a prefix
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
-    }
+{
+    Route::prefix('api') // تأكد من أن هذا هو الـ prefix
+         ->middleware('api')
+         ->namespace($this->namespace)
+         ->group(base_path('routes/api.php'));
+}
 
     /**
      * Define the "web" routes for the application.
